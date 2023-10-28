@@ -1,0 +1,2 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Sat Oct 28 10:44:46 IST 2023","Sat Oct 28 10:44:51 IST 2023","4731","All Test Suite","APIAutomationATB4X","com.thetestingacademy.misc.TestFile","com.thetestingacademy.misc.TestFile","postRequest","postRequest",""

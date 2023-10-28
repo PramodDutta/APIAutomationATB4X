@@ -1,4 +1,4 @@
-package com.thetestingacademy.payloads;
+package com.thetestingacademy.payloads.request;
 
 import java.util.LinkedHashMap;
 import java.util.Map;

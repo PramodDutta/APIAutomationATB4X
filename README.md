@@ -55,3 +55,13 @@ We are using Hybrid Framework to Automate the Test cases
 
 
 https://github.com/settings/tokens
+
+
+
+# Mobile Testing
+- How you keep your locators
+- flow, E2E 
+- start the sessions and close the sessions
+
+# BDD with Cucmber?
+- A Extra layer of the Feature File codes.

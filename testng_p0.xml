@@ -3,7 +3,7 @@
 <suite name="All Test Suite">
     <test verbose="3" preserve-order="true" name="APIAutomationATB4X">
         <classes>
-            <class name="com.thetestingacademy.misc.TestFile"></class>
+            <class name="com.thetestingacademy.crud.TC_CreateBooking"></class>
         </classes>
         <groups>
             <run>

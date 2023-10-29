@@ -12,7 +12,7 @@ public class YAMLReader {
         Yaml yaml = new Yaml();
         InputStream inputStream = this.getClass()
                 .getClassLoader()
-                .getResourceAsStream("com/thetestingacademy/resource/TestDataYAML.yaml");
+                .getResourceAsStream("com/thetestingacademy/resources/TestDataYAML.yaml");
         Map<String, Object> obj = yaml.load(inputStream);
         return obj;
     }

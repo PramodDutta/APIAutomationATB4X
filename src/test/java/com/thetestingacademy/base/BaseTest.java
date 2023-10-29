@@ -1,5 +1,6 @@
 package com.thetestingacademy.base;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.thetestingacademy.actions.AssertActions;
 import com.thetestingacademy.endpoints.APIConstants;
 import com.thetestingacademy.modules.PayloadManager;
@@ -13,6 +14,9 @@ import io.restassured.specification.RequestSpecification;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class BaseTest {
 
@@ -27,7 +31,7 @@ public class BaseTest {
     public static ValidatableResponse validatableResponse;
 
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void setConfig() {
         // Reset the Rest Assured Base URLs
         // Base URL
@@ -45,6 +49,17 @@ public class BaseTest {
 //                .addHeader("Content-Type", "application/json")
 //                .build().log().all();
 
+    }
+
+    public String getToken() throws JsonProcessingException {
+
+        requestSpecification = RestAssured.given().baseUri(APIConstants.BASE_URL).basePath("/auth");
+        String payload = payloadManager.setToken();
+        response = requestSpecification.contentType(ContentType.JSON)
+                .body(payload)
+                .when().post();
+        jsonPath = new JsonPath(response.asString());
+        return jsonPath.getString("token");
     }
 
 

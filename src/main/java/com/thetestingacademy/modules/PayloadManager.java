@@ -2,6 +2,7 @@ package com.thetestingacademy.modules;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.thetestingacademy.payloads.request.Auth;
 import com.thetestingacademy.payloads.request.Booking;
 import com.thetestingacademy.payloads.request.Bookingdates;
 import com.thetestingacademy.payloads.response.BookingRespons;
@@ -60,7 +61,29 @@ public class PayloadManager {
         return bookingRespons;
     }
 
+    public Booking JsonToObjectPUT(String jsonString) throws JsonProcessingException {
+        objectMapper = new ObjectMapper();
+        Booking bookingRespons = objectMapper.readValue(jsonString, Booking.class);
+        return bookingRespons;
+    }
+
     public String updatedPayload() throws JsonProcessingException {
+        objectMapper = new ObjectMapper();
+        Booking booking = new Booking();
+        booking.setFirstname("Lucky");
+        booking.setLastname("Dutta");
+        booking.setTotalprice(199);
+        booking.setDepositpaid(true);
+        booking.setAdditionalneeds("Breakfast, lunch");
+        Bookingdates bookingdates = new Bookingdates();
+        bookingdates.setCheckin("2022-10-01");
+        bookingdates.setCheckout("2022-10-01");
+        booking.setBookingdates(bookingdates);
+        String payload = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(booking);
+        return payload;
+    }
+
+    public String updatedPayloadPatch() throws JsonProcessingException {
         objectMapper = new ObjectMapper();
         Booking booking = new Booking();
         booking.setFirstname("Lucky");
@@ -80,5 +103,14 @@ public class PayloadManager {
         return null;
     };
 
+
+    public String setToken() throws JsonProcessingException {
+        objectMapper = new ObjectMapper();
+        Auth auth = new Auth();
+        auth.setUsername("admin");
+        auth.setPassword("password123");
+        return objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(auth);
+
+    }
 
 }

@@ -1,4 +1,4 @@
-package com.thetestingacademy.crud;
+package com.thetestingacademy.misc.CREATE;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.thetestingacademy.actions.AssertActions;

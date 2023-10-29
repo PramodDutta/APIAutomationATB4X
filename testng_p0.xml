@@ -2,9 +2,9 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
     <test verbose="3" preserve-order="true" name="APIAutomationATB4X">
-        <classes>
-            <class name="com.thetestingacademy.crud.TC_CreateBooking"></class>
-        </classes>
+        <packages>
+            <package name="com.thetestingacademy.crud.INT.*"/>
+        </packages>
         <groups>
             <run>
                 <include name="P0"></include>
